@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+             <div style="display: inline;">
+                {% for i in range(0, tam) %}
+                <div class="card" style="width: 30rem; border: steelblue solid; border-radius: 10px">
+                    <div class="card-body">
+                      <h5 class="card-title">{{usrNames[i]}}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">{{usrNames[i]}}'s post:</h6>
+                      <p class="card-text">{{msgs[i]}}</p>
+                      <a href="#" class="card-link">Mais posts deste usuário</a>
+                    </div>
+                 </div>
+                 <p></p>
+                 {% endfor %}
+            </div>
+
+{% endblock %}

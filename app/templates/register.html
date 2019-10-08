@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<form class="form-signin" method="POST">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert alert-warning" >
+      <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+    {{ rf.csrf_token }}
+    <label for="input" class="sr-only">Primeiro Nome</label>
+    {{rf.firstName(class="form-control", placeholder="Seu Primeiro Nome")}}
+    <p></p>
+    <label for="input" class="sr-only">Último nome</label>
+    {{rf.lastName(class="form-control", placeholder="Último Nome")}}
+    <p></p>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
+    <p></p>
+    <p></p>
+  </form>
+{% endblock %}

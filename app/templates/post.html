@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<form class="form-signin" method="POST">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert alert-warning" >
+      <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+    {{ pf.csrf_token }}
+    <label class="sr-only">Seu ID:</label>
+    {{pf.user(class="form-control", placeholder="Seu ID de usuário")}}
+    <p></p>
+    <label class="sr-only">Mensagem a ser postada:</label>
+    {{pf.msg(class="form-control", placeholder="Mensagem a ser enviada")}}
+    <p></p>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Postar</button>
+    <p></p>
+    <p></p>
+  </form>
+{% endblock %}
